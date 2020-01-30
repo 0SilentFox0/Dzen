@@ -20,10 +20,7 @@
 import Main from "@/components/Main";
 export default {
   name: "App",
-  components: { Main },
-  component: {
-    Main
-  }
+  components: { Main }
 };
 </script>
 
@@ -130,3 +127,5 @@ button:focus-within {
   outline: none;
 }
 </style>
+
+

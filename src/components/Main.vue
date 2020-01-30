@@ -1,16 +1,16 @@
 <template>
   <div id="Main">
-    <h2 class="title">IP Address</h2>
+    <h2 class="title">{{ this.title }}</h2>
     <form @submit.prevent="onSubmit">
       <input
-        id="input-1"
-        v-model="ip"
-        type="text"
         required
+        @change="show"
+        id="input-1"
+        type="text"
         placeholder="000.000.00.00"
-        v-mask="'###.###.###.###'"
+        :class="{ 'mod-group-success': indexBool }"
       />
-      <button>Get information</button>
+      <button type="submit">Get information</button>
     </form>
     <h2 class="title">Result</h2>
     <div style="max-width: 100%; overflow: auto;">
@@ -25,11 +25,23 @@
         </tr>
         <tr class="table_second-row">
           <td>{{ this.ip }}</td>
-          <td>{{ getLocation.continent.names.en}}/{{ getLocation.continent.code}}</td>
-          <td>{{ getLocation.country.names.en}}/{{ getLocation.country.iso_code}}</td>
-          <td>{{ getLocation.city.names.en}}</td>
-          <td>{{ getLocation.postal.code}}</td>
-          <td>{{parseFloat(getLocation.location.latitude).toFixed(1)}}/{{parseFloat(getLocation.location.longitude).toFixed(1)}}</td>
+<!--          <td>-->
+<!--            {{ getLocation.continent.names.en }}/{{-->
+<!--              getLocation.continent.code-->
+<!--            }}-->
+<!--          </td>-->
+<!--          <td>-->
+<!--            {{ getLocation.country.names.en }}/{{-->
+<!--              getLocation.country.iso_code-->
+<!--            }}-->
+<!--          </td>-->
+<!--          <td>{{ getLocation.city.names.en }}</td>-->
+<!--          <td>{{ getLocation.postal.code }}</td>-->
+<!--          <td>-->
+<!--            {{ parseFloat(getLocation.location.latitude).toFixed(1) }}/{{-->
+<!--              parseFloat(getLocation.location.longitude).toFixed(1)-->
+<!--            }}-->
+<!--          </td>-->
         </tr>
       </table>
     </div>
@@ -88,29 +100,57 @@ const GEO_LOCATION_QUERY = gql`
     }
   }
 `;
-
 export default {
   name: "Main",
   data() {
-    return { ip: "94.214.199.225" };
+    return {
+      ip: "161.185.160.93",
+      indexBool: false,
+      title: "IP Adress"
+      // ip: ""
+    };
+  },
+  methods: {
+    onSubmit() {
+      this.indexBool = false;
+      this.title = "IP Adress";
+      this.$apollo.queries.getLocation.refetch();
+    },
+    show(e) {
+      this.ip = e.target.value;
+    }
   },
   apollo: {
     getLocation: {
       query: GEO_LOCATION_QUERY,
       variables() {
         return { ip: this.ip };
+      },
+      result({ data}) {
+        if (data.getLocation.city == null) data.getLocation.city = "-";
+        else if (data.getLocation.continent.names.en == null)
+          data.getLocation.city = "-";
+        else if (data.getLocation.country.names.en == null) data.getLocation.city = "-";
+        else if (data.getLocation.postal == null) data.getLocation.city = "-";
+        else if (data.getLocation.location == null) data.getLocation.city = "-";
+        console.log(data.getLocation);
+      },
+      error(error) {
+        console.log(error);
+        if (error) {
+          this.indexBool = true;
+          this.title = "Error";
+        }
       }
-    }
-  },
-  methods: {
-    onSubmit() {
-      this.$apollo.queries.getLocation.refetch()
     }
   }
 };
 </script>
 
 <style scoped>
+.mod-group-success {
+  border-color: red;
+}
 #Main {
   background: #ffffff;
   box-shadow: 0 0 50px rgba(230, 230, 230, 0.8);
