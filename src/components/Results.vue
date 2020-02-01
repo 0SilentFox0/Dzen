@@ -14,18 +14,18 @@
 				<tr class="table_second-row" v-if="'ip' in ipInfo">
 					<td>{{ ipInfo.ip || '-' }}</td>
 					<td>
-						{{ ipInfo.continent.names[$i18n.locale] || '-' }} /
-						{{ ipInfo.continent.code || '-' }}
+						{{ipInfo.continent ? ipInfo.continent.names[$i18n.locale] : '-' }} /
+						{{ipInfo.continent ? ipInfo.continent.code : '-' }}
 					</td>
 					<td>
-						{{ ipInfo.country.names[this.$i18n.locale] || '-' }} /
-						{{ ipInfo.country.iso_code || '-' }}
+						{{ ipInfo.country ? ipInfo.country.names[$i18n.locale] : '-' }} /
+						{{ ipInfo.country ? ipInfo.country.iso_code : '-' }}
 					</td>
-					<td>{{ ipInfo.city.names[this.$i18n.locale] || '-' }}</td>
-					<td>{{ ipInfo.postal.code || '-' }}</td>
+					<td>{{ ipInfo.city  ? ipInfo.city.names[$i18n.locale] : '-' }}</td>
+					<td>{{ ipInfo.postal ? ipInfo.postal.code : '-' }}</td>
 					<td>
-						{{ parseFloat(ipInfo.location.latitude ).toFixed(1) || '-' }} /
-						{{ parseFloat(ipInfo.location.longitude).toFixed(1) || '-' }}
+						{{ipInfo.location ? parseFloat(ipInfo.location.latitude ).toFixed(1) : '-' }} /
+						{{ipInfo.location ? parseFloat(ipInfo.location.longitude).toFixed(1) : '-' }}
 					</td>
 				</tr>
 				<tr v-else>

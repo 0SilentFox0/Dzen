@@ -19,7 +19,7 @@
 						{{ ipInfo.country.names[$i18n.locale] || '-' }} /
 						{{ ipInfo.country.iso_code || '-' }}
 					</td>
-					<td>{{ ipInfo.city.names[$i18n.locale] || '-' }}</td>
+					<td>{{ ipInfo.city  ? ipInfo.city.names[$i18n.locale] : '-' }}</td>
 				</tr>
 			</table>
 		</div>
