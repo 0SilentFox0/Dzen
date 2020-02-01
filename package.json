@@ -24,7 +24,8 @@
     "vue-apollo": "^3.0.3",
     "vue-router": "^3.1.5",
     "vue-the-mask": "^0.11.1",
-    "vuex": "^3.1.2"
+    "vuex": "^3.1.2",
+    "vuex-history": "^1.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.1.0",
@@ -32,7 +33,7 @@
     "@vue/cli-service": "^4.1.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.0.0",
+    "eslint-plugin-vue": "^5.2.3",
     "sass-resources-loader": "^2.0.1",
     "vue-template-compiler": "^2.6.10"
   },
@@ -46,7 +47,8 @@
       "eslint:recommended"
     ],
     "rules": {
-      "no-console": "off"
+      "no-console": "off",
+      "no-unused-vars": "off"
     },
     "parserOptions": {
       "parser": "babel-eslint"
