@@ -16,10 +16,10 @@
 				<tr class="table_second-row" v-for="(ipInfo, index) in ipInfos" :key="index">
 					<td>{{ ipInfo.ip || '-' }}</td>
 					<td>
-						{{ ipInfo.country.names[$i18n.locale] || '-' }} /
-						{{ ipInfo.country.iso_code || '-' }}
+						{{ipInfo.country ? ipInfo.country.names[$i18n.locale] : '-' }} /
+						{{ipInfo.country ? ipInfo.country.iso_code : '-' }}
 					</td>
-					<td>{{ ipInfo.city  ? ipInfo.city.names[$i18n.locale] : '-' }}</td>
+					<td>{{ ipInfo.city ? ipInfo.city.names[$i18n.locale] : '-' }}</td>
 				</tr>
 			</table>
 		</div>

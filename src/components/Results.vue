@@ -21,7 +21,7 @@
 						{{ ipInfo.country ? ipInfo.country.names[$i18n.locale] : '-' }} /
 						{{ ipInfo.country ? ipInfo.country.iso_code : '-' }}
 					</td>
-					<td>{{ ipInfo.city  ? ipInfo.city.names[$i18n.locale] : '-' }}</td>
+					<td>{{ ipInfo.city ? ipInfo.city.names[$i18n.locale] : '-' }}</td>
 					<td>{{ ipInfo.postal ? ipInfo.postal.code : '-' }}</td>
 					<td>
 						{{ipInfo.location ? parseFloat(ipInfo.location.latitude ).toFixed(1) : '-' }} /
