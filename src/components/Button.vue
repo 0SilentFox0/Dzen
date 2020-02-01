@@ -47,6 +47,7 @@
 
 	button:hover {
 		box-shadow: 0px 0px 20px rgba(255, 108, 108, 0.7);
+		cursor: pointer;
 	}
 
 	@media (max-width: 425px) {

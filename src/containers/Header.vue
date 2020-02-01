@@ -6,7 +6,7 @@
 				<div class="dropdown">
 					<button class="dropbtn">{{this.$i18n.locale}} <span class="arrow"></span></button>
 					<div class="dropdown-content">
-						<a href="#" @click="() => this.$i18n.locale = 'ru'">RU</a>
+						<a  @click="() => this.$i18n.locale = 'ru'">RU</a>
 						<a href="#" @click="() => this.$i18n.locale = 'en'">EN</a>
 					</div>
 				</div>
@@ -35,6 +35,13 @@
 		font-size: 18px;
 		line-height: 25px;
 		text-align: center;
+	}
+
+	.header__name {
+		font-style: normal;
+		font-weight: 800;
+		font-size: 18px;
+		line-height: 25px;
 	}
 
 	.header__wrapper {
@@ -106,7 +113,8 @@
 		display: block;
 	}
 
-	.dropdown-content a:focus {
+	.dropdown-content a:focus,
+	.dropdown-content a:hover{
 		color: #656bf2;
 	}
 

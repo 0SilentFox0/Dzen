@@ -109,7 +109,7 @@
 	}
 
 	.container {
-		max-width: 1000px;
+		max-width: 1170px;
 		background: #ffffff;
 		box-shadow: 0 0 50px rgba(230, 230, 230, 0.8);
 		padding: 48px;
@@ -161,6 +161,7 @@
 
 	input:focus,
 	input:focus-within {
+		border: 1px solid #656BF2;
 		box-shadow: none !important;
 		outline: none;
 	}
@@ -190,6 +191,10 @@
 	}
 
 	table tr td {
+		font-style: normal;
+		font-weight: normal;
+		font-size: 12px;
+		line-height: 16px;
 		border-right: 1px solid #bbb;
 		border-bottom: 1px solid #bbb;
 		padding: 11px 12px 11px 16px;
