@@ -13,7 +13,7 @@
 					<td></td>
 					<td></td>
 				</tr>
-				<tr class="table_second-row" v-for="(ipInfo, index) in ipInfos" :key="index" >
+				<tr class="table_second-row" v-for="(ipInfo, index) in ipInfos" :key="index">
 					<td>{{ ipInfo.ip || '-' }}</td>
 					<td>
 						{{ ipInfo.country.names[$i18n.locale] || '-' }} /
@@ -49,13 +49,14 @@
 </script>
 
 <style scoped>
-.history__clear {
-	margin-top: 18px;
-}
+	.history__clear {
+		margin-top: 18px;
+	}
 
-.history__table {
-	width: 396px;
-}
+	.history__table {
+		width: 396px;
+	}
+
 	button:disabled {
 		background: #E6E6E6;
 		opacity: 0.85;

@@ -1,5 +1,9 @@
 <template>
-	<button type="submit" @click="clickCallback" :disabled="disabled">{{this.$props.text}}</button>
+	<button
+		type="submit"
+		@click="clickCallback"
+		:disabled="disabled">{{this.$props.text}}
+	</button>
 </template>
 
 <script>
