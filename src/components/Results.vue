@@ -21,7 +21,10 @@
 						{{ ipInfo.country ? ipInfo.country.names[$i18n.locale] : '-' }} /
 						{{ ipInfo.country ? ipInfo.country.iso_code : '-' }}
 					</td>
-					<td>{{ ipInfo.city ? ipInfo.city.names[$i18n.locale] : '-' }}</td>
+					<td v-if="($i18n.locale == 'ru') && (ipInfo.city.names.ru == null)"> {{ ipInfo.city.names.en }}</td>
+					<td v-else-if="ipInfo.city">{{ipInfo.city.names[$i18n.locale] }}</td>
+					<td v-else>-</td>
+<!--					<td>{{ ipInfo.city ? ipInfo.city.names[$i18n.locale] : '-' }}</td>-->
 					<td>{{ ipInfo.postal ? ipInfo.postal.code : '-' }}</td>
 					<td>
 						{{ipInfo.location ? parseFloat(ipInfo.location.latitude ).toFixed(1) : '-' }} /
