@@ -26,8 +26,8 @@
           <td
             v-if="
               $i18n.locale == 'ru' &&
-                ipInfo.city.names.ru == null &&
-                ipInfo.city
+                ipInfo.city &&
+                ipInfo.city.names.ru == null
             "
           >
             {{ ipInfo.city.names.en }}
