@@ -19,7 +19,7 @@
     "apollo-link": "^1.2.13",
     "apollo-link-http": "^1.5.16",
     "core-js": "^3.4.4",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "graphql": "^14.6.0",
     "graphql-tag": "^2.10.1",
     "shortid": "^2.2.15",
